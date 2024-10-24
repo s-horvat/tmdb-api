@@ -1,12 +1,19 @@
-# React + Vite
+__The goal is to make a responsive website that features trending and popular sections for movies and TV shows, with a search option and additional information displayed when a specific TV show or movie title is selected.__
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+For API calls I will be using  [The Movie Database API](https://developer.themoviedb.org/docs/getting-started)
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-# tmdb-api
-Using: HTML,CSS( Tailwind), npm, React( with Vite), react-router-dom
+
+__Using:__
+
+HTML
+
+CSS( [Tailwind](https://tailwindcss.com/docs/installation))
+
+[npm](https://www.npmjs.com/package/npm)
+
+[React( using Vite template)](https://vite.dev/guide/)
+
+[react-router-dom](https://www.npmjs.com/package/react-router-dom)
 
 
