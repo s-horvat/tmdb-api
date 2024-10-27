@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   bannerData: [],
+  imageURL: "",
 };
 export const tmdbSlice = createSlice({
   name: "tmdb",
@@ -10,8 +11,11 @@ export const tmdbSlice = createSlice({
     setBannerData: (state, action) => {
       state.bannerData = action.payload;
     },
+    setImageURL: (state, action) => {
+      state.imageURL = action.payload;
+    },
   },
 });
-export const { setBannerData } = tmdbSlice.actions;
+export const { setBannerData, setImageURL } = tmdbSlice.actions;
 
 export default tmdbSlice.reducer;

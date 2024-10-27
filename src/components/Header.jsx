@@ -18,7 +18,7 @@ function Header() {
     e.preventDefault();
   };
   return (
-    <header className="fix top-0 w-full h-16 px-10 bg-neutral-600 opacity-75 flex items-center">
+    <header className="fixed top-0 w-full h-16 px-10 bg-neutral-600 opacity-75 flex items-center">
       <div>
         <Link to={"/"}>
           <img
