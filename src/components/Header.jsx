@@ -4,6 +4,7 @@ import userIcon from "../assets/userIcon.png";
 import movieLogo from "../assets/movieLogo.png";
 import { IoIosSearch } from "react-icons/io";
 import { navigation } from "../const/navigation";
+import { setBannerData } from "../store/tmdbSlice";
 
 function Header() {
   const [searchInput, setSearchInput] = useState("");
@@ -31,9 +32,8 @@ function Header() {
       <nav className="hidden lg:flex items-center gap-5 ml-20">
         {navigation.map((nav, index) => {
           return (
-            <div>
+            <div key={nav.label}>
               <NavLink
-                key={nav.label}
                 to={nav.href}
                 className={({ isActive }) =>
                   ` px-3 hover:text-neutral-400 ${

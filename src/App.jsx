@@ -27,7 +27,7 @@ function App() {
     try {
       const response = await axios.get("/configuration");
       dispach(setImageURL(response.data.images.secure_base_url + "original"));
-      console.log("confing data");
+      // console.log("confing data");
     } catch (error) {
       console.log("error", error);
     }
