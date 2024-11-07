@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { FaAngleLeft } from "react-icons/fa6";
 import { FaAngleRight } from "react-icons/fa6";
@@ -22,21 +22,33 @@ const BannerHome = () => {
       setCurrentImg((prev) => prev - 1);
     }
   };
+
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     if (currentImg < bannerData.length - 1) {
+  //       handleNext();
+  //     } else {
+  //       setCurrentImg(0);
+  //     }
+  //   }, 2000);
+  //   return () => clearInterval(interval);
+  // }, [bannerData, imgURL]);
+
   return (
     <section className="w-full h-full">
       <div className="flex min-h-full max-h[95vh] overflow-hidden">
         {bannerData.map((data) => {
-          // console.log("data", data);
+          console.log("data", data);
 
           return (
             <div
               key={data.id}
-              className="min-w-full min-h[450px] lg:min-h-full overflow-hidden relative group"
+              className="min-w-full min-h[450px] lg:min-h-full overflow-hidden relative group transition-all"
               style={{ transform: `translateX(-${currentImg * 100}%)` }}
             >
               <div className="w-full h-full">
                 <img
-                  alt={data.original_title}
+                  alt={data?.title || data?.name}
                   src={imgURL + data.backdrop_path}
                   className="h-full w-full object-cover"
                 />
@@ -61,7 +73,7 @@ const BannerHome = () => {
               <div className="container mx-auto">
                 <div className=" w-full absolute bottom-0 max-w-md px-3">
                   <h2 className="font-bold text-2xl margin-0  lg:text-4xl text-white drop-shadow-3xl">
-                    {data.original_title}
+                    {data?.title || data?.name}
                   </h2>
                   <p className="text-ellipsis line-clamp-3 my-2">
                     {data.overview}
