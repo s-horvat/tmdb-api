@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
+import { FaAngleLeft } from "react-icons/fa6";
+import { FaAngleRight } from "react-icons/fa6";
 
 const BannerHome = () => {
   const bannerData = useSelector((state) => state.tmdbData.bannerData);
@@ -8,16 +10,29 @@ const BannerHome = () => {
   const imgURL = useSelector((state) => state.tmdbData.imageURL);
   //   console.log("imgurl", imgURL);
   //   console.log("banner Home", bannerData);
+  const [currentImg, setCurrentImg] = useState(0);
+
+  const handleNext = () => {
+    if (currentImg < bannerData.length - 1) {
+      setCurrentImg((prev) => prev + 1);
+    }
+  };
+  const handePrevious = () => {
+    if (currentImg > 0) {
+      setCurrentImg((prev) => prev - 1);
+    }
+  };
   return (
     <section className="w-full h-full">
       <div className="flex min-h-full max-h[95vh] overflow-hidden">
         {bannerData.map((data) => {
-          console.log("data", data);
+          // console.log("data", data);
 
           return (
             <div
               key={data.id}
-              className="min-w-full min-h[450px] lg:min-h-full overflow-hidden relative"
+              className="min-w-full min-h[450px] lg:min-h-full overflow-hidden relative group"
+              style={{ transform: `translateX(-${currentImg * 100}%)` }}
             >
               <div className="w-full h-full">
                 <img
@@ -25,6 +40,22 @@ const BannerHome = () => {
                   src={imgURL + data.backdrop_path}
                   className="h-full w-full object-cover"
                 />
+                {/* btn next and previous */}
+                <div className="absolute top-0 h-full w-full hidden group-hover:lg:flex items-center justify-between px-4   ">
+                  <button
+                    onClick={handePrevious}
+                    className="bg-white p1 rounded-full text-4xl z-10 text-black "
+                  >
+                    <FaAngleLeft />
+                  </button>
+                  <button
+                    onClick={handleNext}
+                    className="bg-white p1 rounded-full text-4xl z-10 text-black"
+                  >
+                    <FaAngleRight />
+                  </button>
+                </div>
+                {/* end btn */}
                 <div className="absolute top-0 w-full h-full bg-gradient-to-t from-neutral-900 to-transparent"></div>
               </div>
               <div className="container mx-auto">
@@ -38,7 +69,7 @@ const BannerHome = () => {
                   <div className="flex items-center gap-4">
                     <p>Rading: {Number(data.vote_average).toFixed(1)}</p>
                     <p>
-                      Popularity {Number(data.popularity).toFixed(0)}
+                      Popularity: {Number(data.popularity).toFixed(0)}
                       <span className="m-2"> | </span>
                       Vote count: {data.vote_count}
                     </p>
