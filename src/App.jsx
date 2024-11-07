@@ -14,7 +14,7 @@ function App() {
   const dispach = useDispatch();
   const fetchTrendindgData = async () => {
     try {
-      const response = await axios.get("/trending/all/day");
+      const response = await axios.get("/trending/movie/day");
 
       dispach(setBannerData());
 
