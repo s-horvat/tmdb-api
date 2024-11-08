@@ -30,7 +30,7 @@ const BannerHome = () => {
   //     } else {
   //       setCurrentImg(0);
   //     }
-  //   }, 2000);
+  //   }, 1000);
   //   return () => clearInterval(interval);
   // }, [bannerData, imgURL]);
 
@@ -52,8 +52,8 @@ const BannerHome = () => {
                   src={imgURL + data.backdrop_path}
                   className="h-full w-full object-cover"
                 />
-                {/* btn next and previous */}
-                <div className="absolute top-0 h-full w-full hidden group-hover:lg:flex items-center justify-between px-4   ">
+                {/* btn next and previous  hidden group-hover:lg:flex */}
+                <div className="absolute top-0 h-full w-full  flex items-center justify-between px-4   ">
                   <button
                     onClick={handePrevious}
                     className="bg-white p1 rounded-full text-4xl z-10 text-black "
