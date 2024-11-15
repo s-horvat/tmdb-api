@@ -6,7 +6,7 @@ function Card({ data, trending, index }) {
   const imgURL = useSelector((state) => state.tmdbData.imageURL);
 
   return (
-    <div className="w-full lg:text max-w-[250px]  overflow-hidden rounded-xl h-100 relative">
+    <div className="w-full lg:text min-w [230px] max-w-[250px]  overflow-hidden rounded-xl h-100 relative ">
       <img src={imgURL + data?.poster_path} alt={data?.title || data?.name} />
 
       <div className="absolute top-2 ">

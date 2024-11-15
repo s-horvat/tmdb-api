@@ -5,8 +5,10 @@
 @tailwind utilities;
 
 body {
+  margin: 0;
   /* background-color: gray; */
   /* text-align: center; */
   font-family: "Nunito Sans", sans-serif;
+  scroll-behavior: smooth;
   @apply bg-neutral-900 text-neutral-300;
 }

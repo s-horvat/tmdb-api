@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { FaAngleLeft } from "react-icons/fa6";
 import { FaAngleRight } from "react-icons/fa6";
+import moment from "moment";
 
 const BannerHome = () => {
   const bannerData = useSelector((state) => state.tmdbData.bannerData);
@@ -75,11 +76,12 @@ const BannerHome = () => {
                   <h2 className="font-bold text-2xl margin-0  lg:text-4xl text-white drop-shadow-3xl">
                     {data?.title || data?.name}
                   </h2>
+                  <h9>{moment(data?.release_date).format("YYYY")}</h9>{" "}
                   <p className="text-ellipsis line-clamp-3 my-2">
                     {data.overview}
                   </p>
                   <div className="flex items-center gap-4">
-                    <p>Rading: {Number(data.vote_average).toFixed(1)}</p>
+                    <p>Rating: {Number(data.vote_average).toFixed(1)}</p>
                     <p>
                       Popularity: {Number(data.popularity).toFixed(0)}
                       <span className="m-2"> | </span>
