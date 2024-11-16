@@ -76,7 +76,7 @@ const BannerHome = () => {
                   <h2 className="font-bold text-2xl margin-0  lg:text-4xl text-white drop-shadow-3xl">
                     {data?.title || data?.name}
                   </h2>
-                  <h9>{moment(data?.release_date).format("YYYY")}</h9>{" "}
+                  <h6>{moment(data?.release_date).format("YYYY")}</h6>{" "}
                   <p className="text-ellipsis line-clamp-3 my-2">
                     {data.overview}
                   </p>
