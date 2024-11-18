@@ -39,7 +39,7 @@ const BannerHome = () => {
     <section className="w-full h-full">
       <div className="flex min-h-full max-h[95vh] overflow-hidden">
         {bannerData.map((data) => {
-          console.log("data", data);
+          // console.log("data", data);
 
           return (
             <div
