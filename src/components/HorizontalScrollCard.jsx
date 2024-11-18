@@ -7,11 +7,11 @@ function HorizontalScrollCard({ data = [], heading, trending }) {
   const containerRef = useRef();
 
   const handleNext = () => {
-    containerRef.current.scrollLeft += 250;
+    containerRef.current.scrollLeft += 400;
   };
 
   const handlePrevious = () => {
-    containerRef.current.scrollLeft -= 250;
+    containerRef.current.scrollLeft -= 400;
   };
   return (
     <div className="container mx-auto px-3 my-10">

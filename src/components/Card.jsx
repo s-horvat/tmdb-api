@@ -26,7 +26,7 @@ function Card({ data, trending, index }) {
       <div>
         <p className=" absolute w-full backdrop-blur-3xl py-1 px-4 bottom-0 text-sm bg-black/60 flex justify-between text-neutral-300">
           <span className="m-auto">
-            {moment(data?.release_date).format("YYYY")}{" "}
+            {moment(data?.first_air_date || data?.release_date).format("YYYY")}
           </span>
           <span className="bg-yellow-700 p-0.5 text-black font-bold rounded-full">
             {Number(data?.vote_average).toFixed(1)}

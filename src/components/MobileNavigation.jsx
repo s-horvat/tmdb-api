@@ -17,7 +17,7 @@ function MobileNavigation() {
                 }`
               }
             >
-              <div className="text-2xl">{nav.icon}</div>
+              <div className="text-2xl z-50">{nav.icon}</div>
               <p>{nav.label}</p>
             </NavLink>
           );
