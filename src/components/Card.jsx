@@ -3,21 +3,25 @@ import { useSelector } from "react-redux";
 import moment from "moment";
 import { Link } from "react-router-dom";
 
-function Card({ data, trending, index }) {
+function Card({ data, trending, index, explore }) {
   const imgURL = useSelector((state) => state.tmdbData.imageURL);
 
   return (
     <Link
       to={"/" + data.media_type + "/" + data.id}
-      className="w-full lg:text min-w-[230px] max-w-[250px]  overflow-hidden rounded-xl h-100 relative z-10"
+      className="w-full lg:text min-w-[230px] max-w-[250px]  overflow-hidden rounded-xl h-100 block relative z-10"
     >
       <img src={imgURL + data?.poster_path} alt={data?.title || data?.name} />
 
       <div className="absolute top-2">
+        <h2 className="bg-black/70 backdrop-blur-3xl rounded-e-xl ps-2 pe-2 overflow-hidden">
+          {explore?.name || explore?.title}
+        </h2>
+
         {trending && (
           <div className="justify-between">
             <h2 className="bg-black/70 backdrop-blur-3xl rounded-e-xl ps-2 pe-2 overflow-hidden">
-              {index}. {data?.title || data?.name}
+              {index + `.`} {data?.title || data?.name}
             </h2>
           </div>
         )}

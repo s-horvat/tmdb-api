@@ -11,7 +11,7 @@ const useFetch = (endpoint) => {
       const response = await axios.get(endpoint);
       setLoading(false);
       setData(response.data.results);
-      console.log("custom hook response", response.data.results);
+      // console.log("custom hook response", response.data.results);
     } catch (error) {
       console.log("endpont error", error);
     }

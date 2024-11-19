@@ -10,7 +10,7 @@ const BannerHome = () => {
 
   const imgURL = useSelector((state) => state.tmdbData.imageURL);
   //   console.log("imgurl", imgURL);
-  console.log("banner Home", bannerData);
+  // console.log("banner Home", bannerData);
   const [currentImg, setCurrentImg] = useState(0);
 
   const handleNext = () => {
