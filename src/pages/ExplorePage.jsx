@@ -39,6 +39,12 @@ function ExplorePage() {
   }, [pageNo]);
 
   useEffect(() => {
+    setPageNo(1);
+    setData([]);
+    fetchData();
+  }, [params.explore]);
+
+  useEffect(() => {
     window.addEventListener("scroll", handleScroll);
   }, []);
 
@@ -56,6 +62,7 @@ function ExplorePage() {
                 data={exploreData}
                 key={exploreData.id + index + "edgf"}
                 explore={exploreData}
+                media_type={params.explore}
               />
             );
           })}

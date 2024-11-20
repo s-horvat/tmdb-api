@@ -4,7 +4,7 @@ import userIcon from "../assets/userIcon.png";
 import movieLogo from "../assets/movieLogo.png";
 import { IoIosSearch } from "react-icons/io";
 import { navigation } from "../const/navigation";
-import { setBannerData } from "../store/tmdbSlice";
+// import { setBannerData } from "../store/tmdbSlice";
 
 function Header() {
   const [searchInput, setSearchInput] = useState("");

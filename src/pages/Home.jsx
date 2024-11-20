@@ -7,12 +7,12 @@ import useFetch from "../hooks/useFetch";
 
 const Home = () => {
   const trendingData = useSelector((state) => state.tmdbData.bannerData);
-  // console.log("trending", trendingData);
 
   const { data: nowPlayingData } = useFetch("/movie/now_playing");
   const { data: topRated } = useFetch("/movie/top_rated");
   const { data: popularTVShowsData } = useFetch("/trending/tv/week");
   const { data: airingTodayTVshows } = useFetch("/tv/airing_today");
+  console.log("trending", airingTodayTVshows);
 
   return (
     <div>
@@ -26,6 +26,7 @@ const Home = () => {
         data={nowPlayingData}
         heading={"In Cinemas"}
         trending={true}
+        media_type={"movie"}
       />
       <HorizontalScrollCard
         data={popularTVShowsData}
@@ -36,12 +37,14 @@ const Home = () => {
         data={airingTodayTVshows}
         heading={"TV Shows Airing Today"}
         trending={true}
+        media_type={"tv"}
       />
 
       <HorizontalScrollCard
         data={topRated}
-        heading={"Greatest Of All Time"}
+        heading={"Greatest Movies Of All Time"}
         trending={true}
+        media_type={"movie"}
       />
     </div>
   );
