@@ -19,10 +19,10 @@ function HorizontalScrollCard({ data = [], heading, trending, media_type }) {
         {heading}
       </h2>
 
-      <div className="relative">
+      <div className="relative 5">
         <div
           ref={containerRef}
-          className="grid grid-cols-[repeat(20,230px)] gap-6 grid-flow-col overflow-auto scrollbar-none  scroll-smooth overflow-x-scroll "
+          className="grid grid-cols-[repeat(20,230px)] gap-6 grid-flow-col overflow-hidden scrollbar-none scroll-smooth overflow-x-scroll "
         >
           {data.map((data, index) => {
             return (
@@ -39,13 +39,13 @@ function HorizontalScrollCard({ data = [], heading, trending, media_type }) {
         <div className="absolute top-0 h-full w-full flex items-center justify-between px-2 ">
           <button
             onClick={handlePrevious}
-            className="bg-white p1 rounded-full text-3xl text-black -ml-2 z-20"
+            className="bg-white p1 rounded-full text-3xl text-black -ml-2 z-20 "
           >
             <FaAngleLeft />
           </button>
           <button
             onClick={handleNext}
-            className="bg-white p1 rounded-full text-3xl text-black -mr-2 z-20"
+            className="bg-white p1 rounded-full text-3xl text-black -mr-2 z-20 "
           >
             <FaAngleRight />
           </button>

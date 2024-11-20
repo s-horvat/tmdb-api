@@ -10,13 +10,13 @@ function Card({ data, trending, index, explore, media_type }) {
   return (
     <Link
       to={"/" + mediaType + "/" + data.id}
-      className="w-full lg:text min-w-[240px] max-w-[280px]  overflow-hidden rounded-xl h-100 block relative z-10  "
+      className="w-full lg:text min-w-[240px] max-w-[280px]  overflow-hidden rounded-xl h-100 block relative z-10 hover:scale-105 "
       // hover:scale-105
     >
       <img src={imgURL + data?.poster_path} alt={data?.title || data?.name} />
 
       <div className="absolute top-2">
-        <h2 className="bg-black/70 backdrop-blur-3xl rounded-e-xl ps-2 pe-2 overflow-hidden">
+        <h2 className="bg-black/70 backdrop-blur-3xl rounded-e-xl ps-2 pe-2 overflow-hidden hover:scale-105 transition-all">
           {explore?.name || explore?.title}
         </h2>
 
