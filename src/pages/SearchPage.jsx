@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
+import Card from "../components/Card";
+import ExplorePage from "./ExplorePage";
 
 function SearchPage() {
   const location = useLocation();
@@ -8,7 +10,7 @@ function SearchPage() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`/discover/collection`, {
+      const response = await axios.get(`/search/collection`, {
         params: {
           query: location?.search?.slice(3),
           page: 1,
@@ -40,8 +42,7 @@ function SearchPage() {
             return (
               <Card
                 data={searchData}
-                key={exploreData.id + index + "search"}
-                explore={exploreData}
+                key={searchData.id + index + "search"}
                 media_type={searchData.media_type}
               />
             );
