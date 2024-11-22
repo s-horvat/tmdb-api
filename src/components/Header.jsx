@@ -12,11 +12,11 @@ function Header() {
   const [searchInput, setSearchInput] = useState(removeSpace);
   const navigate = useNavigate();
 
-  console.log("location", location.search.slice(2));
+  console.log("location", location.search.slice(3));
 
   useEffect(() => {
     if (searchInput) {
-      navigate(`/search?=${searchInput}`);
+      navigate(`/search?q=${searchInput}`);
     }
   }, [searchInput]);
   const handleSubmit = (e) => {

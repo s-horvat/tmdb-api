@@ -19,10 +19,10 @@ function SearchPage() {
       setData((prev) => {
         return [...prev, ...response.data.results];
       });
-      setTotalPageNo(response.data.total_pages);
-      console.log("explore response", response.data.results);
+      // setTotalPageNo(response.data.total_pages);
+      // console.log("explore response", response.data.results);
     } catch (error) {
-      console.log("Explore Page error", error);
+      console.log("Search Page error", error);
     }
   };
 
@@ -38,11 +38,13 @@ function SearchPage() {
         </h3>
         <div className="grid grid-cols-[repeat(auto-fit,230px)] gap-4">
           {data.map((searchData, index) => {
-            // console.log(exploreData.name);
+            // console.log(searchData);
             return (
               <Card
                 data={searchData}
                 key={searchData.id + index + "search"}
+                explore={searchData}
+                vote={false}
                 media_type={searchData.media_type}
               />
             );

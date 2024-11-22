@@ -56,7 +56,6 @@ function ExplorePage() {
         </h3>
         <div className="grid grid-cols-[repeat(auto-fit,230px)] gap-4">
           {data.map((exploreData, index) => {
-            // console.log(exploreData.name);
             return (
               <Card
                 data={exploreData}
