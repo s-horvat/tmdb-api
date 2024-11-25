@@ -10,7 +10,7 @@ function Card({ data, trending, index, explore, media_type }) {
   return (
     <Link
       to={"/" + mediaType + "/" + data.id}
-      className="w-full lg:text min-w-[260px] max-w-[290px]  overflow-hidden rounded-xl min-h-96 block relative z-10 "
+      className="w-full lg:text min-w-[260px] max-w-[290px] gap-4 overflow-hidden rounded-xl min-h-96 block relative z-10 "
       // hover:scale-105
     >
       {data?.poster_path ? (
