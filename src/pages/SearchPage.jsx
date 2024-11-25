@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Card from "../components/Card";
 import ExplorePage from "./ExplorePage";
@@ -7,13 +7,15 @@ import ExplorePage from "./ExplorePage";
 function SearchPage() {
   const location = useLocation();
   const [data, setData] = useState([]);
+  const [page, setPage] = useState(1);
+  const navigate = useNavigate();
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`/search/collection`, {
+      const response = await axios.get(`/search/multi`, {
         params: {
           query: location?.search?.slice(3),
-          page: 1,
+          page: page,
         },
       });
       setData((prev) => {
@@ -27,16 +29,40 @@ function SearchPage() {
   };
 
   useEffect(() => {
+    setPage(1);
+    setData([]);
     fetchData();
   }, [location?.search]);
 
+  const handleScroll = () => {
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+      setPage((prev) => prev + 1);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    fetchData();
+  }, [page]);
+
   return (
     <div className="pt-16">
+      <div className="lg:hidden mx-2 sticky top-20 z-20">
+        <input
+          type="text"
+          placeholder="Search here"
+          onChange={(e) => navigate(`/search?q=${e.target.value}`)}
+          className="px-4 py-1 text-lg w-full bg-neutral-300 rounded-full text-neutral-900"
+        />
+      </div>
       <div className="container mx-auto">
-        <h3 className="capitalize text-lg lg:text-2xl font-semibold m-2">
+        <h3 className="capitalize text-2xl font-semibold m-8 flex justify-center">
           Search Results
         </h3>
-        <div className="grid grid-cols-[repeat(auto-fit,230px)] gap-4">
+        <div className="grid grid-cols-[repeat(auto-fit,240px)] gap-8 justify-center lg:justify-start">
           {data.map((searchData, index) => {
             // console.log(searchData);
             return (

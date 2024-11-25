@@ -22,7 +22,7 @@ function HorizontalScrollCard({ data = [], heading, trending, media_type }) {
       <div className="relative 5">
         <div
           ref={containerRef}
-          className="grid grid-cols-[repeat(20,230px)] gap-6 grid-flow-col overflow-hidden scrollbar-none scroll-smooth overflow-x-scroll "
+          className="grid grid-cols-[repeat(20,255px)] gap-7 grid-flow-col overflow-hidden scrollbar-none scroll-smooth overflow-x-scroll "
         >
           {data.map((data, index) => {
             return (
