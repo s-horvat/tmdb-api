@@ -54,7 +54,7 @@ function ExplorePage() {
         <h3 className="capitalize text-lg lg:text-2xl font-semibold m-2">
           Popular {params.explore}
         </h3>
-        <div className="grid grid-cols-[repeat(auto-fit,230px)] gap-4">
+        <div className="grid grid-cols-[repeat(auto-fit,260px)] justify-center gap-4">
           {data.map((exploreData, index) => {
             return (
               <Card
