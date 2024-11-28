@@ -3,10 +3,11 @@ import { useSelector } from "react-redux";
 import { FaAngleLeft } from "react-icons/fa6";
 import { FaAngleRight } from "react-icons/fa6";
 import moment from "moment";
+import { Link } from "react-router-dom";
 
 const BannerHome = () => {
   const bannerData = useSelector((state) => state.tmdbData.bannerData);
-  //   console.log("banner", bannerData);
+  console.log("banner", bannerData);
 
   const imgURL = useSelector((state) => state.tmdbData.imageURL);
   //   console.log("imgurl", imgURL);
@@ -49,23 +50,24 @@ const BannerHome = () => {
               className="min-w-full min-h[450px] lg:min-h-full overflow-hidden relative group transition-all"
               style={{ transform: `translateX(-${currentImg * 100}%)` }}
             >
-              <div className="w-full h-full">
+              <div className="w-full h-full z-30 ">
                 <img
                   alt={data?.title || data?.name}
                   src={imgURL + data.backdrop_path}
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-cover bg-gradient-to-t from-neutral-900 to-transparent z-30 "
                 />
+
                 {/* btn next and previous  hidden group-hover:lg:flex */}
-                <div className="absolute top-0 h-full w-full  flex items-center justify-between px-4   ">
+                <div className="absolute top-0 h-full w-full flex items-center justify-between px-4 z-0  ">
                   <button
                     onClick={handePrevious}
-                    className="bg-white p1 rounded-full text-4xl z-10 text-black "
+                    className="bg-white p1 rounded-full text-4xl z-20 text-black "
                   >
                     <FaAngleLeft />
                   </button>
                   <button
                     onClick={handleNext}
-                    className="bg-white p1 rounded-full text-4xl z-10 text-black"
+                    className="bg-white p1 rounded-full text-4xl z-20 text-black"
                   >
                     <FaAngleRight />
                   </button>
@@ -90,9 +92,12 @@ const BannerHome = () => {
                       Vote count: {data.vote_count}
                     </p>
                   </div>
-                  <button className="bg-white px-4 my-2 font-bold  text-black rounded content-between  hover:bg-gradient-to-l from-red-700 to-orange-500 shadow-md transition-all hover:scale-105">
-                    Play Now
-                  </button>
+                  <Link
+                    to={"/" + data.media_type + "/" + data.id}
+                    className="bg-white px-4 my-2 font-bold  text-black rounded content-between  hover:bg-gradient-to-l from-red-700 to-orange-500 shadow-md transition-all hover:scale-105"
+                  >
+                    Details
+                  </Link>
                 </div>
               </div>
             </div>

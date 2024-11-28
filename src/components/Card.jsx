@@ -23,21 +23,23 @@ function Card({ data, trending, index, explore, media_type }) {
       {/* <img src={imgURL + data?.poster_path} alt={data?.title || data?.name} /> */}
 
       <div className="absolute top-2">
-        <h2 className="bg-black/70 backdrop-blur-3xl rounded-e-xl ps-2 pe-2 overflow-hidden hover:scale-105 transition-all">
-          {explore?.name || explore?.title}
-        </h2>
+        {explore && (
+          <h2 className="bg-black/70 backdrop-blur-3xl rounded-e-xl ps-2 pe-2 overflow-hidden transition-all">
+            {explore?.name || explore?.title}
+          </h2>
+        )}
 
-        {trending && (
+        {/* {trending && (
           <div className="justify-between">
             <h2 className="bg-black/70 backdrop-blur-3xl  line-clamp-1 rounded-e-xl ps-2 pe-2 overflow-hidden">
               {index + `.`} {data?.title || data?.name}
             </h2>
           </div>
-        )}
+        )} */}
       </div>
 
       <div>
-        <p className=" absolute w-full backdrop-blur-3xl py-1 px-4 bottom-0 text-sm bg-black/60 flex justify-between text-neutral-300">
+        <p className=" absolute w-full backdrop-blur-xl py-1 px-4 bottom-0 text-sm bg-black/60 flex justify-between text-neutral-300">
           <span className="m-auto">
             {moment(data?.first_air_date || data?.release_date).format("YYYY")}
           </span>

@@ -1,9 +1,11 @@
 import { React } from "react";
+import useFetch from "../hooks/useFetch";
 import { useParams } from "react-router-dom";
 import useFetchDetails from "../hooks/useFetchDetails";
 import { useSelector } from "react-redux";
 import moment from "moment";
 import Devider from "../components/Devider";
+import HorizontalScrollCard from "../components/HorizontalScrollCard";
 
 function DetailsPage() {
   const params = useParams();
@@ -11,6 +13,9 @@ function DetailsPage() {
   const { data } = useFetchDetails(`/${params?.explore}/${params?.id}`);
   const { data: castData } = useFetchDetails(
     `/${params?.explore}/${params?.id}/credits`
+  );
+  const { data: similarData } = useFetch(
+    `/${params?.explore}/${params?.id}/similar`
   );
 
   // console.log("data", data);
@@ -27,7 +32,7 @@ function DetailsPage() {
     ?.filter((el) => el?.job === "Producer")
     ?.map((el) => el?.name)
     ?.join(", ");
-  // console.log("writer", writer);
+  console.log("similar", similarData);
 
   return (
     <div>
@@ -113,6 +118,15 @@ function DetailsPage() {
               );
             })}
         </div>
+      </div>
+      <Devider />
+      <div className="pb-5">
+        <HorizontalScrollCard
+          key={similarData?.id + "similar"}
+          data={similarData}
+          media_type={params?.explore}
+          heading={"More like this:"}
+        />
       </div>
     </div>
   );

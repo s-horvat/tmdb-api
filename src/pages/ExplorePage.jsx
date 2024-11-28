@@ -59,7 +59,7 @@ function ExplorePage() {
             return (
               <Card
                 data={exploreData}
-                key={exploreData.id + index + "edgf"}
+                key={exploreData.id + index + "explore"}
                 explore={exploreData}
                 media_type={params.explore}
               />
