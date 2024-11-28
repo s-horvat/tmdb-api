@@ -2,7 +2,7 @@ __The goal is to make a responsive website that features trending and popular se
 
 For API calls I will be using  [The Movie Database API](https://developer.themoviedb.org/docs/getting-started)
 
-
+__Live site__  https://browsetvandmovies.netlify.app/
 
 __Using:__
 
