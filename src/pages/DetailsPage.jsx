@@ -32,11 +32,10 @@ function DetailsPage() {
     ?.filter((el) => el?.job === "Producer")
     ?.map((el) => el?.name)
     ?.join(", ");
-  console.log("similar", similarData);
+  // console.log("similar", similarData);
 
   return (
     <div>
-      <div className="mt-36"></div>
       <div className="w-full h-[500px] relative pt-17 hidden lg:block ">
         <div className="w-full h-full ">
           <img
