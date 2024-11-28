@@ -50,15 +50,15 @@ const BannerHome = () => {
               className="min-w-full min-h[450px] lg:min-h-full overflow-hidden relative group transition-all"
               style={{ transform: `translateX(-${currentImg * 100}%)` }}
             >
-              <div className="w-full h-full z-30 ">
+              <div className="w-full h-full ">
                 <img
                   alt={data?.title || data?.name}
                   src={imgURL + data.backdrop_path}
-                  className="h-full w-full object-cover bg-gradient-to-t from-neutral-900 to-transparent z-30 "
+                  className="h-full w-full object-cover bg-gradient-to-t from-neutral-900 to-transparent  "
                 />
 
                 {/* btn next and previous  hidden group-hover:lg:flex */}
-                <div className="absolute top-0 h-full w-full flex items-center justify-between px-4 z-0  ">
+                <div className="absolute top-0 h-full w-full flex items-center justify-between px-4">
                   <button
                     onClick={handePrevious}
                     className="bg-white p1 rounded-full text-4xl z-20 text-black "
