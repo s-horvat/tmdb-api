@@ -12,7 +12,7 @@ const Home = () => {
   const { data: topRated } = useFetch("/movie/top_rated");
   const { data: popularTVShowsData } = useFetch("/trending/tv/week");
   const { data: airingTodayTVshows } = useFetch("/tv/airing_today");
-  console.log("trending", airingTodayTVshows);
+  // console.log("trending", airingTodayTVshows);
 
   return (
     <div>

@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 const BannerHome = () => {
   const bannerData = useSelector((state) => state.tmdbData.bannerData);
-  console.log("banner", bannerData);
+  // console.log("banner", bannerData);
 
   const imgURL = useSelector((state) => state.tmdbData.imageURL);
   //   console.log("imgurl", imgURL);

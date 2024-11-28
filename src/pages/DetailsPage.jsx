@@ -17,9 +17,9 @@ function DetailsPage() {
   const { data: similarData } = useFetch(
     `/${params?.explore}/${params?.id}/similar`
   );
-
   // console.log("data", data);
-  console.log("star cast", castData);
+  // console.log("star cast", castData);
+
   const writer = castData?.crew
     ?.filter((el) => el?.job === "Writer")
     ?.map((el) => el?.name)
@@ -36,6 +36,7 @@ function DetailsPage() {
 
   return (
     <div>
+      <div className="mt-36"></div>
       <div className="w-full h-[500px] relative pt-17 hidden lg:block ">
         <div className="w-full h-full ">
           <img
